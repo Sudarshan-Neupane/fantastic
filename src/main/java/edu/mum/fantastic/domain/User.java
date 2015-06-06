@@ -2,27 +2,49 @@ package edu.mum.fantastic.domain;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.NumberFormat;
+
+
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	@NotNull
 	private String firstName;
 	private String middleName;
+	@NotNull
 	private String lastName;
+	@NotNull
+	@Email(message = "{validate.user.userName.email}")
 	private String userName;
+	@NotNull
 	private String password;
-	private String mobile;
+	@NumberFormat
+	@Size(max = 15, min = 9)
+	@NotNull
+	private Long mobile;
+	@NotNull
 	private String address1;
 	private String address2;
+	@NotNull
 	private String city;
+	@NotNull
 	private String state;
+	@NumberFormat
+	@Size(max = 10, min = 6)
+	@NotNull
 	private String zipCode;
+	@NotNull
 	private String country;
 
 	public User() {
 	}
 
 	public User(String firstName, String lastName, String userName,
-			String password, String mobile, String address1, String city,
+			String password, Long mobile, String address1, String city,
 			String state, String zipCode, String country) {
 		super();
 		this.firstName = firstName;
@@ -38,7 +60,7 @@ public class User implements Serializable {
 	}
 
 	public User(String firstName, String middleName, String lastName,
-			String userName, String password, String mobile, String address1,
+			String userName, String password, Long mobile, String address1,
 			String address2, String city, String state, String zipCode,
 			String country) {
 		this(firstName, lastName, userName, password, mobile, address1, city,
@@ -87,11 +109,11 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public String getMobile() {
+	public Long getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(String mobile) {
+	public void setMobile(Long mobile) {
 		this.mobile = mobile;
 	}
 

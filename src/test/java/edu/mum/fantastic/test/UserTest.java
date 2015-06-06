@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import edu.mum.fantastic.domain.User;
 import edu.mum.fantastic.service.UserService;
 
-public class UserTest extends BaseTest{
-	
+public class UserTest extends BaseTest {
+
 	@Autowired
 	private UserService userService;
 	private static final String FIRST_NAME = "Sudarshan";
@@ -17,7 +17,7 @@ public class UserTest extends BaseTest{
 	private static final String LAST_NAME = "Neupane";
 	private static final String USER_NAME = "sneupane@gmail.com";
 	private static final String PASSWORD = "nepal@123";
-	private static final String MOBILE = "3196140233";
+	private static final Long MOBILE = 3196140233L;
 	private static final String ADDRESS1 = "1000N 4th STREET";
 	private static final String ADDRESS2 = "";
 	private static final String CITY = "FAIRFIELD";
@@ -39,8 +39,8 @@ public class UserTest extends BaseTest{
 	}
 
 	@Test
-//	@After(value = addUserTest)
-//	@DependsOn(value = edu.mum.fantastic.test.UserTest.addUserTest)
+	// @After(value = addUserTest)
+	// @DependsOn(value = edu.mum.fantastic.test.UserTest.addUserTest)
 	public void updateUserTest() {
 		User user = userService.findByUserName(USER_NAME);
 		user.setLastName(CHANGED_LAST_NAME);
