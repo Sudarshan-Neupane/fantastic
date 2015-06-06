@@ -27,7 +27,7 @@ public class UserTest extends BaseTest {
 
 	private static final String CHANGED_LAST_NAME = "Neupane JI";
 
-	@Before
+	//@Before
 	public void addUserTest() {
 		User user = new User(FIRST_NAME, MIDDLE_NAME, LAST_NAME, USER_NAME,
 				PASSWORD, MOBILE, ADDRESS1, ADDRESS2, CITY, STATE, ZIP_CODE,
@@ -38,7 +38,7 @@ public class UserTest extends BaseTest {
 		Assert.assertEquals(USER_NAME, u.getUserName());
 	}
 
-	@Test
+	//@Test
 	// @After(value = addUserTest)
 	// @DependsOn(value = edu.mum.fantastic.test.UserTest.addUserTest)
 	public void updateUserTest() {
