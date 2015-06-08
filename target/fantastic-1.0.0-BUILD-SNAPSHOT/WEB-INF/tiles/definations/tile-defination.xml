@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tiles-definations>
+    <defination name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+        <put-attribute name="title" value="Simple Title"/>
+        <put-attribute name="menu" value="/WEB-INF/tiles/template/navigation.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp"/>
+        <put-attribute name="subHeader" value="/WEB-INF/tiles/template/subHeader.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp"/>
+    </defination>
+    <defination name="login" extends="baseLayout">
+        <put-attribute name="title" value="Login"/>
+        <put-attribute name="body" value="/WEB-INF/views/login.jsp"/>
+    </defination>
+</tiles-definations>

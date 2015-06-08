@@ -1,6 +1,8 @@
 package edu.mum.fantastic.domain;
 
 import java.io.Serializable;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,9 +24,9 @@ public class User implements Serializable {
 	private String userName;
 	@NotNull
 	private String password;
-	@NumberFormat
-	@Size(max = 15, min = 9)
 	@NotNull
+        @Min(9)
+        @Max(15)
 	private Long mobile;
 	@NotNull
 	private String address1;

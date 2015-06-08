@@ -8,7 +8,7 @@ import edu.mum.fantastic.repository.UserRepository;
 import edu.mum.fantastic.service.UserService;
 
 @Service
-public class UserServiceImpl implements UserService {
+class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void update(User t) {
 		try {
-			userRepository.add(t);
+			userRepository.update(t);
 		} catch (IllegalArgumentException ex) {
 			throw new IllegalArgumentException(ex.getMessage());
 		}

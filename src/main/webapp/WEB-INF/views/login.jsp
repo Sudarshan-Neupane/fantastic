@@ -1,10 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<html>
+<!--<html>
     <head>
-        <title>Login</title>
+        <title><spring:message code="fantastic"/></title>
     </head>
-    <body>
+    <body>-->
         <h1>
             Login Page  
         </h1>
@@ -26,5 +26,5 @@
         </form>
         
         <a href="/signup">Create new Account</a>
-    </body>
-</html>
+<!--    </body>
+</html>-->
