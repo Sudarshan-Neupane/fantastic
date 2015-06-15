@@ -22,6 +22,8 @@
          -webkit-border-radius: 25px;
 		 -moz-border-radius: 25px;
 		 border-radius: 25px;
+		 box-shadow: 10px 10px 5px #888888;
+		 
           
         }
         </style>
