@@ -9,46 +9,32 @@ import edu.mum.fantastic.service.UserService;
 
 @Service
 class UserServiceImpl implements UserService {
-	
-	@Autowired
-	private UserRepository userRepository;
 
-	@Override
-	public void add(User t) {
-		try {
-			userRepository.add(t);
-		} catch (IllegalArgumentException ex) {
-			throw new IllegalArgumentException(ex.getMessage());
-		}
-	}
+    @Autowired
+    private UserRepository userRepository;
 
-	@Override
-	public void update(User t) {
-		try {
-			userRepository.update(t);
-		} catch (IllegalArgumentException ex) {
-			throw new IllegalArgumentException(ex.getMessage());
-		}
+    @Override
+    public void add(User t) {
+        userRepository.save(t);
+    }
 
-	}
+    @Override
+    public void update(User t) {
+        userRepository.save(t);
 
-	@Override
-	public void remove(User t) {
-		// TODO Auto-generated method stub
+    }
 
-	}
+    @Override
+    public void remove(User t) {
+        // TODO Auto-generated method stub
 
-	@Override
-	public User findByUserName(String userName) {
-		if (userName.trim() == null) {
-			throw new IllegalArgumentException("Invalid User name");
-		}
-		User user = null;
-		try {
-			user = userRepository.findByUserName(userName);
-		} catch (IllegalArgumentException ex) {
-			throw new IllegalArgumentException(ex.getMessage());
-		}
-		return user;
-	}
+    }
+
+    @Override
+    public User findByUserName(String userName) {
+        if (userName.trim() == null) {
+            throw new IllegalArgumentException("Invalid User name");
+        }
+        return userRepository.findByUserName(userName);
+    }
 }

@@ -17,21 +17,21 @@ public class UserTest extends BaseTest {
 	private static final String LAST_NAME = "Neupane";
 	private static final String USER_NAME = "sneupane@gmail.com";
 	private static final String PASSWORD = "nepal@123";
-	private static final Long MOBILE = 3196140233L;
-	private static final String ADDRESS1 = "1000N 4th STREET";
-	private static final String ADDRESS2 = "";
-	private static final String CITY = "FAIRFIELD";
-	private static final String STATE = "IOWA";
-	private static final String ZIP_CODE = "52557";
-	private static final String COUNTRY = "United State of America";
+        private static final String RE_PASSWORD = "nepal@123";
+//	private static final Long MOBILE = 3196140233L;
+//	private static final String ADDRESS1 = "1000N 4th STREET";
+//	private static final String ADDRESS2 = "";
+//	private static final String CITY = "FAIRFIELD";
+//	private static final String STATE = "IOWA";
+//	private static final String ZIP_CODE = "52557";
+//	private static final String COUNTRY = "United State of America";
 
 	private static final String CHANGED_LAST_NAME = "Neupane JI";
 
 	@Before
 	public void addUserTest() {
 		User user = new User(FIRST_NAME, MIDDLE_NAME, LAST_NAME, USER_NAME,
-				PASSWORD, MOBILE, ADDRESS1, ADDRESS2, CITY, STATE, ZIP_CODE,
-				COUNTRY);
+				PASSWORD, RE_PASSWORD);
 		userService.add(user);
 		User u = userService.findByUserName(USER_NAME);
 		System.out.println("username: " + u.getUserName());
