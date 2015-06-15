@@ -6,11 +6,25 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><tiles:insertAttribute name="title"/></title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <style type="text/css">
+        .login{
+          width:450px;
+          margin:0px auto;
+          padding:25px;
+          background-color: #ccc;
+         -webkit-border-radius: 25px;
+		 -moz-border-radius: 25px;
+		 border-radius: 25px;
+          
+        }
+        </style>
     </head>
     <body>
         <header>
