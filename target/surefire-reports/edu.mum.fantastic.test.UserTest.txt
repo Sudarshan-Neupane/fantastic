@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: edu.mum.fantastic.test.UserTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.226 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.797 sec
