@@ -13,6 +13,12 @@
     <!-- Root Context: defines shared resources visible to all other web components -->
     <jpa:repositories base-package="edu.mum.fantastic.repository" />
 
+    <bean
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:jdbc.properties</value>
+        </property>
+    </bean>
     <bean id="entityManager"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -23,7 +29,7 @@
         <property name="jpaProperties"> 
             <props> 
                 <prop key="hibernate.hbm2ddl.auto">create-drop</prop> 
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop> 
+                <prop key="hibernate.dialect">${db.databasePlatform}</prop> 
             </props> 
         </property> 
     </bean>
@@ -40,10 +46,10 @@
 
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/final_jpa" />
-        <property name="username" value="root" />
-        <property name="password" value="inspiron" />
+        <property name="driverClassName" value="${db.driver}" />
+        <property name="url" value="${db.url}" />
+        <property name="username" value="${db.username}" />
+        <property name="password" value="${db.password}" />
     </bean>
     <!-- ;INIT=runscript from 'classpath:/sqlcreate.sql'\;runscript from 'classpath:populate.sql' -->
 
