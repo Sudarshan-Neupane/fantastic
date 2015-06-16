@@ -1,10 +1,15 @@
 package edu.mum.fantastic.test;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import edu.mum.fantastic.domain.Address;
+import edu.mum.fantastic.domain.Profile;
+import edu.mum.fantastic.domain.Profile.Gender;
 import edu.mum.fantastic.domain.User;
 import edu.mum.fantastic.service.UserService;
 
@@ -18,12 +23,12 @@ public class UserTest extends BaseTest {
 	private static final String USER_NAME = "sneupane@gmail.com";
 	private static final String PASSWORD = "nepal@123";
         private static final String RE_PASSWORD = "nepal@123";
-//	private static final Long MOBILE = 3196140233L;
-//	private static final String ADDRESS1 = "1000N 4th STREET";
-//	private static final String ADDRESS2 = "";
-//	private static final String CITY = "FAIRFIELD";
-//	private static final String STATE = "IOWA";
-//	private static final String ZIP_CODE = "52557";
+	private static final String MOBILE = "3196140233L";
+	private static final String ADDRESS1 = "1000N 4th STREET";
+	private static final String ADDRESS2 = "";
+	private static final String CITY = "FAIRFIELD";
+	private static final String STATE = "IOWA";
+	private static final String ZIP_CODE = "52557";
 //	private static final String COUNTRY = "United State of America";
 
 	private static final String CHANGED_LAST_NAME = "Neupane JI";
@@ -43,7 +48,11 @@ public class UserTest extends BaseTest {
 	// @DependsOn(value = edu.mum.fantastic.test.UserTest.addUserTest)
 	public void updateUserTest() {
 		User user = userService.findByUserName(USER_NAME);
+		
 		user.setLastName(CHANGED_LAST_NAME);
+		Address address = new Address(ADDRESS1, ADDRESS2, CITY, STATE, ZIP_CODE);
+		Profile profile = new Profile(Gender.MALE, MOBILE, new Date(), address);
+		user.setProfile(profile);
 		userService.update(user);
 		User u = userService.findByUserName(USER_NAME);
 		System.out.println(u.getLastName());

@@ -1,5 +1,7 @@
 package edu.mum.fantastic.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,9 @@ class UserServiceImpl implements UserService {
 
     @Override
     public void update(User t) {
+    	if(this.userRepository.findByUserName(t.getUserName())==null){
+    		throw new IllegalArgumentException("Invalid user");
+    	}
         userRepository.save(t);
 
     }
@@ -37,4 +42,22 @@ class UserServiceImpl implements UserService {
         }
         return userRepository.findByUserName(userName);
     }
+
+	@Override
+	public void updateProfile(User user) {
+		if(this.userRepository.findByUserName(user.getUserName()) == null){
+			
+		}
+		if(user.getProfile() == null){
+			
+		}
+		this.userRepository.save(user);
+		
+	}
+
+	@Override
+	public List<User> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

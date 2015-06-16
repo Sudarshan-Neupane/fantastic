@@ -1,8 +1,11 @@
 package edu.mum.fantastic.serviceimpl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import edu.mum.fantastic.domain.Category;
 import edu.mum.fantastic.repository.CategoryRepository;
 import edu.mum.fantastic.service.CategoryService;
@@ -37,6 +40,12 @@ public class CategoryServiceImpl implements CategoryService {
         }
         return categoryRepository.findByCategoryName(categoryName);
     }
+
+	@Override
+	public List<Category> findAll() {
+		// TODO Auto-generated method stub
+		return (List<Category>) categoryRepository.findAll();
+	}
  
 
 
