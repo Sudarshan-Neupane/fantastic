@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tiles-definitions PUBLIC  
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
-       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-    <definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
-        <put-attribute name="title" value="Simple Title"/>
-        <put-attribute name="menu" value="/WEB-INF/tiles/template/nevigation.jsp"/>
-        <put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp"/>
-        <put-attribute name="subHeader" value="/WEB-INF/tiles/template/subHeader.jsp"/>
-        <put-attribute name="body" value=""/>
-        <put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp"/>
-    </definition>
-    <definition name="login" extends="baseLayout">
-        <put-attribute name="title" value="Login"/>
-        <put-attribute name="body" value="/WEB-INF/views/login.jsp"/>
-    </definition>
-        <definition name="categoryList" extends="baseLayout">
-        <put-attribute name="title" value="categoryList"/>
-        <put-attribute name="body" value="/WEB-INF/views/categoryList.jsp"/>
-    </definition>
+	<definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+		<put-attribute name="title" value="Simple Title" />
+		<put-attribute name="menu"
+			value="/WEB-INF/tiles/template/nevigation.jsp" />
+		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp" />
+		<put-attribute name="subHeader"
+			value="/WEB-INF/tiles/template/subHeader.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
+	</definition>
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
+	<definition name="category" extends="baseLayout">
+		<put-attribute name="title" value="Category List" />
+		<put-attribute name="body" value="/WEB-INF/views/categoryList.jsp" />
+	</definition>
+	<definition name="list" extends="baseLayout">
+		<put-attribute name="title" value="Category List" />
+		<put-attribute name="body" value="/WEB-INF/views/categoryList.jsp" />
+	</definition>
 </tiles-definitions>

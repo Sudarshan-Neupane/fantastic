@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping(value="/category")
 public class CategoryController {
 
 //	@Autowired
@@ -16,7 +17,7 @@ public class CategoryController {
 		 * List<Category> categories = categoryService.findAll();
 		 * model.addAttribute("categories", categories);
 		 */
-		return "categoryList";
+		return "category";
 	}
 	/*
 	 * @RequestMapping(value = "/add", method = RequestMethod.GET) public String
