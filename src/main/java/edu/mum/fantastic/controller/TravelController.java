@@ -16,7 +16,7 @@ public class TravelController {
 	@RequestMapping(value="/travel",method = RequestMethod.GET)
 	public String travel(Model model){
 		
-		logger.info("The travel data has been inserted in"+ new Date());
+		logger.info("The travel data has been inserted in the server"+ new Date());
 		return "travel";
 	}
 
