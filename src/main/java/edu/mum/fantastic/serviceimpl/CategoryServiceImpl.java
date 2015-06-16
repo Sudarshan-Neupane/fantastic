@@ -29,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void remove(Category t) {
-        // TODO Auto-generated method stub
+        categoryRepository.delete(t);
 
     }
 
@@ -47,6 +47,10 @@ public class CategoryServiceImpl implements CategoryService {
 		return (List<Category>) categoryRepository.findAll();
 	}
  
+	@Override
+	public Category findById(long Id){
+		return categoryRepository.findById(Id);
+	}
 
 
 }

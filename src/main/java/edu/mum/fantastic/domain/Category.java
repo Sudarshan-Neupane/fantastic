@@ -21,7 +21,7 @@ public class Category implements Serializable{
 	
 	@NotNull
 	@Size(min=5, max=50, message="Size.Category.Name")
-        @Column(name = "category_name")
+    @Column(name = "category_name")
 	private String categoryName;
 	
 	private int categoryStatus;
