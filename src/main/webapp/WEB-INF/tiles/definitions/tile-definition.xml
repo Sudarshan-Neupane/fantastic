@@ -13,10 +13,14 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
-	<definition name="login" extends="baseLayout">
-		<put-attribute name="title" value="Login" />
-		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
-	</definition>
+<!-- 	<definition name="login" extends="baseLayout"> -->
+<!-- 		<put-attribute name="title" value="Login" /> -->
+<!-- 		<put-attribute name="menu" value="" /> -->
+<!-- 		<put-attribute name="header" value="" /> -->
+<!-- 		<put-attribute name="subHeader" value="" /> -->
+<!-- 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" /> -->
+<!-- 		<put-attribute name="footer" value="" /> -->
+<!-- 	</definition> -->
 	<definition name="category" extends="baseLayout">
 		<put-attribute name="title" value="Category List" />
 		<put-attribute name="body" value="/WEB-INF/views/categoryList.jsp" />

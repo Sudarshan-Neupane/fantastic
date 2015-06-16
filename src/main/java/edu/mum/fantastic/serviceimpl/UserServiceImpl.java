@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.mum.fantastic.domain.Authority;
+import edu.mum.fantastic.domain.Authority.Role;
 import edu.mum.fantastic.domain.User;
 import edu.mum.fantastic.repository.UserRepository;
 import edu.mum.fantastic.service.UserService;
@@ -17,6 +19,13 @@ class UserServiceImpl implements UserService {
 
     @Override
     public void add(User t) {
+    	if(this.userRepository.findByUserName(t.getUserName())!= null){
+    		throw new IllegalArgumentException("Invalid user.");
+    	}
+    	Authority auth = new Authority();
+    	auth.setUsername(t.getUserName());
+    	auth.setRole(Role.User);
+    	t.setAuthority(auth);
         userRepository.save(t);
     }
 

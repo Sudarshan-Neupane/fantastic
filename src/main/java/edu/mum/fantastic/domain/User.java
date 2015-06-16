@@ -25,27 +25,31 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@NotNull
-        @Column(name = "first_name")
+	@Column(name = "first_name")
 	private String firstName;
-        @Column(name = "middle_name")
+	@Column(name = "middle_name")
 	private String middleName;
 	@NotNull
-        @Column(name = "last_name")
+	@Column(name = "last_name")
 	private String lastName;
 	@NotNull
 	@Email(message = "{validate.user.userName.email}")
-        @Column(name="user_name")
+	@Column(name = "username")
 	private String userName;
 	@NotNull
-        @Column(name = "password")
+	@Column(name = "password")
 	private String password;
-        @Transient
+	@Transient
 	private String rePassword;
 
 	@Valid
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
+
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "authority_id")
+	private Authority authority;
 
 	public User() {
 	}
@@ -128,6 +132,14 @@ public class User implements Serializable {
 
 	public void setProfile(Profile profile) {
 		this.profile = profile;
+	}
+
+	public Authority getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(Authority authority) {
+		this.authority = authority;
 	}
 
 }
