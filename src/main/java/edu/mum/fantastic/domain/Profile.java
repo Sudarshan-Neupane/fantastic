@@ -39,7 +39,7 @@ public class Profile implements Serializable {
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
     @Valid
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
