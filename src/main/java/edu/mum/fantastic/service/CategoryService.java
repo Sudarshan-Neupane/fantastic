@@ -8,7 +8,8 @@ public interface CategoryService extends AbstractService<Category>{
 
 	public Category findByCategoryName(String categoryName);
 	
+	public Category findById(long Id);
+	
 	public List<Category> findAll();
-
 
 }
