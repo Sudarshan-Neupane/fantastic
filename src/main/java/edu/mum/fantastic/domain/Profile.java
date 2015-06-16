@@ -2,103 +2,126 @@ package edu.mum.fantastic.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.CollectionId;
 
-@Entity
+@Entity(name = "profiles")
 public class Profile implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long profile_id;
+    private static final long serialVersionUID = 1L;
 
-	@Valid
-	private Gender gender;
-	@Size(min = 8)
-	private String phoneNumber;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	private Date dateOfBirth;
-	@Valid
-	@OneToOne
-	@JoinColumn(name="address_id")
-	private Address address;
+    @Valid
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+    @Size(min = 8)
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-	public Profile(Gender gender, String phoneNumber,
-			Date dob, Address address) {
-		super();
-		this.gender = gender;
-		this.phoneNumber = phoneNumber;
-		this.dateOfBirth = dob;
-		this.address = address;
-	}
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "date_of_birth")
+    private Date dateOfBirth;
+    @Valid
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
 
-	public Gender getGender() {
-		return gender;
-	}
+    public Profile() {
+    }
 
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
+    public Profile(Gender gender, String phoneNumber,
+            Date dob, Address address) {
+        super();
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.dateOfBirth = dob;
+        this.address = address;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Date getDateOfBirth() {
-		return this.dateOfBirth;
-	}
+    public Gender getGender() {
+        return gender;
+    }
 
-	public void setDateOfBirth(Date dob) {
-		this.dateOfBirth = dob;
-	}
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
-	public Address getAddress() {
-		return address;
-	}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	public enum Gender {
-		FEMALE, MALE
-	}
+    public Date getDateOfBirth() {
+        return this.dateOfBirth;
+    }
 
-	public enum Category {
+    public void setDateOfBirth(Date dob) {
+        this.dateOfBirth = dob;
+    }
 
-		SPORT("Sport", ""), WATCHINGMOVIE("Watching movie", ""), READINGBOOK(
-				"Reading Book", ""), TRAVEL("Travel", "");
+    public Address getAddress() {
+        return address;
+    }
 
-		private String value;
-		private String desc;
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-		private Category(String value, String desc) {
-			this.value = value;
-			this.desc = desc;
+    public enum Gender {
 
-		}
+        FEMALE, MALE
+    }
 
-		public String getValue() {
-			return value;
-		}
+    public enum Category {
 
-		public String getDesc() {
-			return desc;
-		}
+        SPORT("Sport", ""), WATCHINGMOVIE("Watching movie", ""), READINGBOOK(
+                "Reading Book", ""), TRAVEL("Travel", "");
 
+        private String value;
+        private String desc;
 
-	}
+        private Category(String value, String desc) {
+            this.value = value;
+            this.desc = desc;
+
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+    }
 
 }

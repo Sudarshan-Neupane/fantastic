@@ -1,6 +1,8 @@
 package edu.mum.fantastic.domain;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -22,20 +25,25 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@NotNull
+        @Column(name = "first_name")
 	private String firstName;
+        @Column(name = "middle_name")
 	private String middleName;
 	@NotNull
+        @Column(name = "last_name")
 	private String lastName;
 	@NotNull
 	@Email(message = "{validate.user.userName.email}")
+        @Column(name="user_name")
 	private String userName;
 	@NotNull
+        @Column(name = "password")
 	private String password;
-	@NotNull
+        @Transient
 	private String rePassword;
 
 	@Valid
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
 
@@ -44,7 +52,7 @@ public class User implements Serializable {
 
 	public User(String firstName, String lastName, String userName,
 			String password, String rePassword) {
-		super();
+		this();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;

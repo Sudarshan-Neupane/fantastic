@@ -13,7 +13,7 @@ import edu.mum.fantastic.domain.Category;
 @Transactional(readOnly = true)
 public interface CategoryRepository extends  CrudRepository<Category, Long>{
 	
-	@Query("SELECT c from Category c WHERE categoryName = :categoryName")
+	@Query("SELECT c from categories c WHERE category_name = :categoryName")
 	public Category findByCategoryName(@Param("categoryName") String categoryName);
 
 }

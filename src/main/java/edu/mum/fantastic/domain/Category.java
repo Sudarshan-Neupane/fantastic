@@ -1,6 +1,7 @@
 package edu.mum.fantastic.domain;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,17 +10,18 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
+@Entity(name = "categories")
 public class Category implements Serializable{
 	
     private static final long serialVersionUID = 1L;
     
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long categoryId;
+	private Long id;
 	
 	@NotNull
 	@Size(min=5, max=50, message="Size.Category.Name")
+        @Column(name = "category_name")
 	private String categoryName;
 	
 	private int categoryStatus;
@@ -31,12 +33,12 @@ public class Category implements Serializable{
 		this.categoryStatus = categoryStatus;
 	}
 
-	public Long getCategoryId() {
-		return categoryId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getCategoryName() {
