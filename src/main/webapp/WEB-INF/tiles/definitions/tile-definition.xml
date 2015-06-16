@@ -15,4 +15,8 @@
         <put-attribute name="title" value="Login"/>
         <put-attribute name="body" value="/WEB-INF/views/login.jsp"/>
     </definition>
+        <definition name="categoryList" extends="baseLayout">
+        <put-attribute name="title" value="categoryList"/>
+        <put-attribute name="body" value="/WEB-INF/views/categoryList.jsp"/>
+    </definition>
 </tiles-definitions>

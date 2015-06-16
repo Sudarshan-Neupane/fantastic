@@ -14,7 +14,7 @@ public class CategoryTest extends BaseTest {
 	@Autowired
 	private CategoryService categoryService;
 	
-	private static final String CATEGORYNAME = "Travel";
+	private static final String CATEGORYNAME = "Travel!!!";
 	private static final int STATUS = 0;
 	private static final int CHANGED_STATUS = 1;
 	
