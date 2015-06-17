@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.CollectionId;
 
@@ -28,7 +29,7 @@ public class Profile implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Valid
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @Size(min = 8)
@@ -38,6 +39,9 @@ public class Profile implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Category category;
     @Valid
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
@@ -93,6 +97,14 @@ public class Profile implements Serializable {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public enum Gender {

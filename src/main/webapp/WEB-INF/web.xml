@@ -40,6 +40,10 @@
     <!-- springSecurityFilterChain == an internal infrastructure bean 
     created based on namespace enabling of security
     <http auto-config='true'> -->
+    <!--Spring Security -->  
+    <listener>
+        <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+    </listener>
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>

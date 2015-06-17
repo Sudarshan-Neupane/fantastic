@@ -1,9 +1,7 @@
 package edu.mum.fantastic.test;
 
-import java.util.Date;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,17 +14,17 @@ public class TravelTest extends BaseTest {
 
 	private static final String DESTINATION = "Nepal";
 	private static final String DESCRIPTION = "Lets go to nepal";
-	private static final Date DATEFROM = new Date("2010/10/12");
-	private static final Date DATETO = new Date("2010/12/12");
+	private static final String DATEFROM = "10/12/2010";
+	private static final String DATETO = "12/12/2010";
 
 	@Test
 	public void addTravelTest() {
-		Travel t = new Travel(DESTINATION, DATEFROM, DATETO, DESCRIPTION);
+		Travel t = new Travel(DESTINATION, DateHelper.formatDate(DATEFROM), DateHelper.formatDate(DATETO), DESCRIPTION);
 		travel.add(t);
 		Travel tv = travel.findTravelByDestination(DESTINATION);
 		System.out.println("destination: " + tv.getDestination());
 		Assert.assertEquals(DESTINATION, tv.getDestination());
 
 	}
-
+        
 }

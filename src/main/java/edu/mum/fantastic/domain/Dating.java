@@ -25,6 +25,7 @@ import org.springframework.data.annotation.Transient;
 @Entity(name = "dating")
 public class Dating implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

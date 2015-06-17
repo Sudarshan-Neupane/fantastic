@@ -52,6 +52,7 @@ public class UserTest extends BaseTest {
 		user.setLastName(CHANGED_LAST_NAME);
 		Address address = new Address(ADDRESS1, ADDRESS2, CITY, STATE, ZIP_CODE);
 		Profile profile = new Profile(Gender.MALE, MOBILE, new Date(), address);
+                profile.setCategory(Profile.Category.SPORT);
 		user.setProfile(profile);
 		userService.update(user);
 		User u = userService.findByUserName(USER_NAME);

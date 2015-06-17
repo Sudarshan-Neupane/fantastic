@@ -3,7 +3,8 @@ package edu.mum.fantastic.serviceimpl;
 import edu.mum.fantastic.domain.Dating;
 import edu.mum.fantastic.repository.DatingRepository;
 import edu.mum.fantastic.service.DatingService;
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ class DatingServiceImp implements DatingService {
 
     @Autowired
     public DatingRepository datingRepository;
-    
+
     @Override
     public void add(Dating t) {
         this.datingRepository.save(t);
@@ -28,13 +29,18 @@ class DatingServiceImp implements DatingService {
 
     @Override
     public void remove(Dating t) {
-     this.datingRepository.delete(t);
+        this.datingRepository.delete(t);
     }
 
     @Override
     public List<Dating> findAll() {
-        return Collections.EMPTY_LIST;
-     
+        List<Dating> list = new ArrayList<>();
+        Iterator<Dating> it = this.datingRepository.findAll().iterator();
+        while (it.hasNext()) {
+            list.add(it.next());
+        }
+        return list;
+
     }
-    
+
 }

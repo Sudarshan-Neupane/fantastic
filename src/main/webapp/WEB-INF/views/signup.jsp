@@ -10,6 +10,7 @@
         <h1>Sign up page</h1>
         <form:form commandName="user">
             <table>
+                <caption>${errors}</caption>
                 <tr>
                     <td><form:label path="firstName">First Name:<em>*</em> </form:label></td>
                     <td><form:input path="firstName"/></td>
@@ -32,12 +33,12 @@
                 </tr>
                 <tr>
                     <td><form:label path="password">Password:<em>*</em> </form:label></td>
-                    <td><form:input path="password"/></td>
+                    <td><form:password path="password"/></td>
                     <td><form:errors path="password"/></td>
                 </tr>
                 <tr>
                     <td><form:label path="rePassword">Re Password:<em>*</em> </form:label></td>
-                    <td><form:input path="rePassword"/></td>
+                    <td><form:password path="rePassword"/></td>
                     <td><form:errors path="rePassword"/></td>
                 </tr>
                 <tr>
