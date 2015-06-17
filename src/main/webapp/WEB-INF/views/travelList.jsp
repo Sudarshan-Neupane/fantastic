@@ -17,9 +17,18 @@
                 width: 600px;
             }
           tr:nth-child(odd){ background-color:#eee; }
+          .travelContainer{
+              width: 960px;
+              margin:0px auto;
+          }
+          .userProfile{
+              
+              
+          }
         </style>
     </head>
     <body>
+        <div class="travelContainer">
         <h1>Travel lists</h1>
         <table>
             <tr> <td>Id </td><td>Username</td><td>Destination</td><td>Date From</td> <td>Date To</td>
@@ -37,5 +46,6 @@
             </c:forEach>
                 
         </table>
+        </div>
     </body>
 </html>

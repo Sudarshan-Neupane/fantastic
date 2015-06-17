@@ -1,0 +1,105 @@
+.wrapper{
+    width:960px;
+    margin: 0px auto;
+    border-left: 1px solid #006B00;
+    border-right: 1px solid #006B00;
+    border-bottom:1px solid #006B00;
+    padding-top: 0px;
+    height: 700px;
+}
+.logo{
+    width: 183px;
+    background-image: url('../images/logo.png');  
+    height: 200px;
+    float: left;   
+}
+.menu{
+    width: 777px;
+    float: right;
+    height: 200px;
+}
+input[type="text"]{
+    width: 280px;
+    border: solid 1px #85b1de;
+    height: 30px;
+    margin: 10px;
+}
+input[type="password"]{
+    width: 280px;
+    border: solid 1px #85b1de;
+    height: 30px;
+    margin: 10px;
+}
+textarea{
+    width: 285px;
+    border: solid 1px #85b1de;
+}
+input[type="submit"]{
+    width: 130px;
+    background-color: #3399FF;
+    border-radius: 5px;
+    height: 30px;
+
+}
+input[type="reset"]{
+    width: 130px;
+    background-color: #3399FF;
+    border-radius: 5px;
+    height: 30px;
+
+}
+.travel{
+    width: 600px;
+    border: solid 1px #3399FF;
+    margin: 0px auto;
+    padding: 5px;
+}
+h2{
+    color:#006B00;
+    text-transform: capitalize;
+ 
+}
+/*label{
+    width: 201px;
+    margin: 10px;
+}*/
+label { width: 136px; float: left; margin-left: 8px;
+        font-weight: bold;
+}
+button{
+    color: #fff;
+    background-color: #3399FF;
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+hr{
+    border: 1px solid #3399FF;
+}
+.slogan{
+    margin-top: 100px;
+    margin-left: 30px;
+    color:#006B00;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.login{
+    width: 440px;
+    float: left;
+    margin-top: 20px;
+    
+    margin-left: 5px;
+}
+.loginLeft{
+    background-image: url('../images/connect.jpg');
+    float: right;
+    width: 510px;
+    height: 400px;
+    border-radius: 10px;
+    
+}
