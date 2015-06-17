@@ -97,7 +97,7 @@ public class Profile implements Serializable {
 
     public enum Gender {
 
-        FEMALE, MALE
+        MALE, FEMALE, OTHER
     }
 
     public enum Category {

@@ -9,13 +9,23 @@
     <body>
         <h1>Dating</h1>
         <form:form modelAttribute="dating">
-            <label>Interested On</label>
-            <select id="interestedOn" name="interestedOn">
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-                <option value="O">Others</option>
-            </select>
-<!--            <input type="text" id="user" name="user" >-->
+            <form:label path="interestedOn">Interested On</form:label>
+            <form:select path="interestedOn">
+                <form:option value="-" selected="selected">Select gender</form:option>
+                <form:options items="${gender}"/>
+            </form:select>
+            <form:errors path="interestedOn" /><br/>
+            
+            <form:label path="interestedAge">Interested Age</form:label>
+            <form:select path="interestedAge">
+                <form:option value="-" selected="selected">Select Interested Age</form:option>
+                <form:options items="${ageGroup}"/>
+            </form:select>
+            <form:errors path="interestedAge" /><br/>
+            
+            <form:label path="description">Description</form:label>
+            <form:textarea path="description"/>
+            <form:errors path="description" /><br/>
             <input type="submit"  value="Submit" />
         </form:form>
     </body>

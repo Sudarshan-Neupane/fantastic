@@ -36,7 +36,18 @@
                 height: 30px;
 
             }
-
+            .travel{
+                width: 600px;
+                border: solid 1px #85b1de;
+                margin: 0px auto;
+                padding: 5px;
+            }
+            h2{
+                color:blue;
+                text-transform: capitalize;
+                text-align: center;
+                
+            }
         </style>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -49,6 +60,8 @@
         </script>
     </head>
     <body>
+        <div class="travel">
+            <h2>Add your travel details</h2>
         <form:form modelAttribute="travel">
             <form:label path="destination">Destination:</form:label>
             <form:input path="destination"  />
@@ -71,5 +84,6 @@
 
 
         </form:form>
+            </div>
     </body>
 </html>

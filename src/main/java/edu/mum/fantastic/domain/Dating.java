@@ -1,9 +1,12 @@
 package edu.mum.fantastic.domain;
 
+import edu.mum.fantastic.domain.Profile.Gender;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
 
@@ -25,10 +29,15 @@ public class Dating implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotEmpty
+    @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(name = "interested_on")
-    private String interestedOn;
-
+    private Gender interestedOn;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private InterestedAge interestedAge;
+    @NotEmpty
+    private String description;
     @Valid
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
@@ -39,11 +48,11 @@ public class Dating implements Serializable {
 
     }
 
-    public Dating(String interestedOn, User user) {
+    public Dating(Gender interestedOn, User user, InterestedAge insAge) {
         this.interestedOn = interestedOn;
         this.user = user;
+        this.interestedAge = insAge;
     }
-    
 
     public long getId() {
         return id;
@@ -53,11 +62,11 @@ public class Dating implements Serializable {
         this.id = id;
     }
 
-    public String getInterestedOn() {
+    public Gender getInterestedOn() {
         return interestedOn;
     }
 
-    public void setInterestedOn(String interestedOn) {
+    public void setInterestedOn(Gender interestedOn) {
         this.interestedOn = interestedOn;
     }
 
@@ -67,6 +76,30 @@ public class Dating implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public InterestedAge getInterestedAge() {
+        return interestedAge;
+    }
+
+    public void setInterestedAge(InterestedAge interestedAge) {
+        this.interestedAge = interestedAge;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public enum InterestedAge {
+
+        TEENAGE,
+        YOUNG_AUDULT,
+        AUDULT,
+        MIDDLE_AGE,
     }
 
 }

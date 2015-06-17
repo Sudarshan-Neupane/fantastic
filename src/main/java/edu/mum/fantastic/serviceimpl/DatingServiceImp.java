@@ -3,6 +3,7 @@ package edu.mum.fantastic.serviceimpl;
 import edu.mum.fantastic.domain.Dating;
 import edu.mum.fantastic.repository.DatingRepository;
 import edu.mum.fantastic.service.DatingService;
+import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,7 @@ class DatingServiceImp implements DatingService {
 
     @Override
     public List<Dating> findAll() {
-        return null;
+        return Collections.EMPTY_LIST;
      
     }
     
