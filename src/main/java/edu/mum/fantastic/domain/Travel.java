@@ -6,10 +6,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity(name="travel")
@@ -22,10 +22,10 @@ public class Travel implements Serializable {
 	@NotEmpty
 	private String destination;
 	@NotNull
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
+        @Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateFrom;
 	@NotNull
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
+        @Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateTo;
 	@NotEmpty
 	private String description;

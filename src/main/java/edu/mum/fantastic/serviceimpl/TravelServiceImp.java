@@ -46,8 +46,7 @@ class TravelServiceImp implements TravelService {
 
 	@Override
 	public List<Travel> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+            return (List<Travel>)travelRepository.findAll();
 	}
 
 
