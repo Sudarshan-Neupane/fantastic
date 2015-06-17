@@ -17,28 +17,27 @@
             <hr/>
             <div class="login">
                 <h2 class="form-signin-heading">Login Page</h2>
+                <c:if test="${not empty error}">
+                    <div class="error">Invalid Username of Password</div>
+                </c:if>
                 <form method="POST"
                       action='<spring:url value="/j_spring_security_check"></spring:url>'>
 
-                    <div class="form-group">
-                        <label for="username">UserName:</label> <input type="text"
-                                                                       id="j_username" name="j_username" placeholder="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="pwd">Password:</label> <input type="password"
-                                                                  id="j_password" name="j_password" placeholder="password">
-                    </div>
-                    <input type="submit" value="Submit" /> <input type="reset"
-                                                                  value="Reset" />
-                </form>
-            </div>
+                          <div class="form-group">
+                              <label for="username">UserName:</label> <input type="text"
+                                                                             id="j_username" name="j_username" placeholder="username">
+                          </div>
+                          <div class="form-group">
+                              <label for="pwd">Password:</label> <input type="password"
+                                                                        id="j_password" name="j_password" placeholder="password">
+                          </div>
+                          <input type="submit" value="Login" /> <input type="reset"
+                                                                       value="Reset" />
+                      </form>
+                </div>
 
-            <div class="loginLeft"></div>
-
-
-            <div class="signin">
-            <a href='<spring:url value="/signup"></spring:url>'><button>Create new Account</button></a>
-            </div>
-            <!--    </body>
-    </html>-->
+                <div class="loginLeft"></div>
+                <a href='<spring:url value="/signup"></spring:url>'><button>Create new Account</button></a>
         </div>
+    </body>
+</html>

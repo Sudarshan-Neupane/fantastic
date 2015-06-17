@@ -19,7 +19,7 @@ import edu.mum.fantastic.domain.Category;
 import edu.mum.fantastic.service.CategoryService;
 
 @Controller
-@RequestMapping(value = "/category")
+@RequestMapping(value = "/sec/category")
 public class CategoryController {
 
 	@Autowired
