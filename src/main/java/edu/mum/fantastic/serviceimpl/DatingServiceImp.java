@@ -8,10 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author sudarshan
- */
 @Service
 @Transactional
 class DatingServiceImp implements DatingService {
@@ -21,22 +17,23 @@ class DatingServiceImp implements DatingService {
     
     @Override
     public void add(Dating t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.datingRepository.save(t);
     }
 
     @Override
     public void update(Dating t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.datingRepository.save(t);
     }
 
     @Override
     public void remove(Dating t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     this.datingRepository.delete(t);
     }
 
     @Override
     public List<Dating> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
+     
     }
     
 }
