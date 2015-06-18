@@ -24,35 +24,37 @@ import org.springframework.validation.BindingResult;
 @RequestMapping("/sec/dating")
 public class DatingController {
 
-    @Autowired
-    private DatingService datingService;
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private DatingService datingService;
+	@Autowired
+	private UserService userService;
 
-    @RequestMapping(value = {"","/add"}, method = RequestMethod.GET)
-    public String dating(@ModelAttribute Dating dating, Model model) {
-        model.addAttribute("gender", Profile.Gender.values());
-        model.addAttribute("ageGroup", Dating.InterestedAge.values());
-        return "dating";
+	@RequestMapping(value = { "", "/add" }, method = RequestMethod.GET)
+	public String dating(@ModelAttribute Dating dating, Model model) {
+		model.addAttribute("gender", Profile.Gender.values());
+		model.addAttribute("ageGroup", Dating.InterestedAge.values());
+		return "dating";
 
-    }
+	}
 
-    @RequestMapping(value = {"","/add"}, method = RequestMethod.POST)
-    public String addDating(@Valid @ModelAttribute Dating dating, BindingResult result) {
-        if (result.hasErrors()) {
-            return "dating";
-        }
-        User user = this.userService.findByUserName(SpringUtils.getUserName());
-        dating.setUser(user);
-        this.datingService.add(dating);
-        return "redirect:/sec/dating/list";
-    }
-    
-    @RequestMapping(value="/list", method=RequestMethod.GET)
-    public String datingList(Model model){
-        List<Dating> datingList = datingService.findAll();
-        model.addAttribute("datinglist",datingList);
-        return "datingList";
-    }
+	@RequestMapping(value = { "", "/add" }, method = RequestMethod.POST)
+	public String addDating(@Valid @ModelAttribute Dating dating,
+			BindingResult result) {
+		if (result.hasErrors()) {
+			return "dating";
+		}
+		User user = this.userService.findByUserName(SpringUtils.getUserName());
+		dating.setUser(user);
+		this.datingService.add(dating);
+		return "redirect:/sec/dating/list";
+	}
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String datingList(Model model) {
+		List<Dating> datingList = datingService.findAll();
+		model.addAttribute("datinglist", datingList);
+		model.addAttribute("image", SpringUtils.getUserName() + ".jpg");
+		return "datingList";
+	}
 
 }

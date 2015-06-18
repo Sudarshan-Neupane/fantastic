@@ -49,5 +49,17 @@
                 <put-attribute name="title" value="~ Change Password ~"/>
                 <put-attribute name="body" value="/WEB-INF/views/changePassword.jsp"/>
         </definition>
+        <definition name="categoryList" extends="baseLayout">
+                <put-attribute name="title" value="~ Dating List~"/>
+                <put-attribute name="body" value="/WEB-INF/views/categoryList.jsp"/>
+        </definition>
+        <definition name="addCategoryForm" extends="baseLayout">
+                <put-attribute name="title" value="~ Dating List~"/>
+                <put-attribute name="body" value="/WEB-INF/views/addCategoryForm.jsp"/>
+        </definition>
         
+        <definition name="editCategoryForm" extends="baseLayout">
+                <put-attribute name="title" value="~ Dating List~"/>
+                <put-attribute name="body" value="/WEB-INF/views/editCategoryForm.jsp"/>
+        </definition>
 </tiles-definitions>

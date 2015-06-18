@@ -2,17 +2,18 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<div class="travelContainer">
-    <h2> Dating : </h2>
+<div class="travel">
+    <h2> Dating </h2>
 
     <div class="mytravel">
         <div class="profileimage">
 
-            <img src="<c:url value="/resources/images/no_pic.jpg"/>" alt="user images"/>
+            <img src="<c:url value="/resources/images/${image}"/>" alt="user images"/>
             <!--<img src="../../resources/images/no_pic.jpg" alt="User Image"/>-->
+        
         </div>
         <div class="travelDetails">
-            fdfsdf
+            
         </div>
     </div>
 
@@ -22,7 +23,7 @@
             <div class="prof">
                 <img src='<c:url value="/resources/images/no-user-image.gif"/>' alt="friends">
                 <br>
-                Royan
+                ${lists.user.firstName}  ${lists.user.middleName}  ${lists.user.lastName}
             </div>
             <div class="details">
                 <b>${lists.description}</b>
