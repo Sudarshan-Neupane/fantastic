@@ -36,9 +36,9 @@
             <div class="loginLeft"></div>
 
 
-
+            <div class="signin">
             <a href='<spring:url value="/signup"></spring:url>'><button>Create new Account</button></a>
-
+            </div>
             <!--    </body>
     </html>-->
         </div>

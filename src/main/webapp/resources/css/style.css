@@ -44,16 +44,19 @@ textarea{
 }
 input[type="submit"]{
     width: 130px;
-    background-color: #3399FF;
+    background-color: #75A319;
     border-radius: 5px;
     height: 30px;
+    color:#fff;
+    font-weight: bold;
 
 }
 input[type="reset"]{
     width: 130px;
-    background-color: #3399FF;
+    background-color: #75A319;
     border-radius: 5px;
     height: 30px;
+    color: #fff;
 
 }
 .travel{
@@ -170,3 +173,18 @@ hr{
     float: left;
     
 }
+.signin{
+    margin-top: 247px;
+}
+
+select {
+   background: #9EBF5E;
+   width: 268px;
+   margin-top: 10px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 5px;
+   height: 34px;
+   }
