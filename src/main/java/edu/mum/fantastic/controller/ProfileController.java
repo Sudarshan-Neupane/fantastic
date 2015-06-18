@@ -11,9 +11,15 @@ import edu.mum.fantastic.domain.Profile;
 import edu.mum.fantastic.domain.User;
 import edu.mum.fantastic.sec.SpringUtils;
 import edu.mum.fantastic.service.UserService;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/sec")
@@ -23,16 +29,16 @@ public class ProfileController {
     private UserService userService;
     private static final Logger logger = Logger.getLogger(ProfileController.class.getName());
 
+    @RequestMapping
+    public void setImage(Model model){
+        model.addAttribute("image", SpringUtils.getUserName() + ".jpg");
+    }
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String login(Model model) {
-
         User user = this.userService.findByUserName(SpringUtils.getUserName());
         if (user == null) {
-            System.out.println("user is null");
             user = new User();
         }
-        System.out.println(user.getUserName());
-        System.out.println(user.getUserName());
         Profile profile;
         model.addAttribute("user", user);
         if (user.getProfile() == null) {
@@ -40,6 +46,7 @@ public class ProfileController {
         } else {
             profile = user.getProfile();
         }
+        model.addAttribute("image", SpringUtils.getUserName() + ".jpg");
         model.addAttribute("profile", profile);
         model.addAttribute("gender", Profile.Gender.values());
         model.addAttribute("interestedField", Profile.Category.values());
@@ -49,12 +56,10 @@ public class ProfileController {
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
     public String updateProfile(@Valid @ModelAttribute Profile profile, BindingResult result, Model model) {
+        model.addAttribute("image", SpringUtils.getUserName() + ".jpg");
         model.addAttribute("gender", Profile.Gender.values());
         model.addAttribute("interestedField", Profile.Category.values());
         if (result.hasErrors()) {
-            logger.info("profile update contains error");
-            model.addAttribute("gender", Profile.Gender.values());
-            model.addAttribute("interestedField", Profile.Category.values());
             return "profile";
         }
         logger.info("no error in profile update");
@@ -69,6 +74,30 @@ public class ProfileController {
             return "profile";
         }
         return "redirect:home";
+    }
+
+    @RequestMapping(value = "/profile/image/upload", method = RequestMethod.POST)
+    public String uploadImage(@RequestParam("imageFile") MultipartFile uploadFile, Model model, HttpServletRequest request,
+            HttpServletResponse response) {
+        System.out.println(uploadFile.getName());
+        String rootDirectory = request.getSession().getServletContext()
+                .getRealPath("/");
+        System.out.println("root directory: " + rootDirectory);
+        model.addAttribute("image", SpringUtils.getUserName() + ".jpg");
+        if (uploadFile != null && !uploadFile.isEmpty()) {
+            try {
+                uploadFile.transferTo(
+                        new File(rootDirectory + "/resources/images/"
+                                + SpringUtils.getUserName() + ".jpg"));
+                System.out.println("Image uploaded");
+            } catch (IOException | IllegalStateException e) {
+                logger.info(e.getMessage());
+                System.out.println(e.getMessage());
+            }
+        } else {
+            System.out.println("file is empty");
+        }
+        return "redirect:/sec/profile";
     }
 
 }

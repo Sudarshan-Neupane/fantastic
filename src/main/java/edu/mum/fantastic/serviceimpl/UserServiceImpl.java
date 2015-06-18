@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import edu.mum.fantastic.domain.Authority;
 import edu.mum.fantastic.domain.Authority.Role;
 import edu.mum.fantastic.domain.User;
+import edu.mum.fantastic.domain.ChangePassword;
 import edu.mum.fantastic.repository.UserRepository;
 import edu.mum.fantastic.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -77,5 +78,18 @@ class UserServiceImpl implements UserService {
     private String encryptString(String text) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(text);
+    }
+
+    @Override
+    public void changePassword(String username, ChangePassword cPassword) {
+        User user = this.userRepository.findByUserName(username);
+        if(!user.getPassword().equals(encryptString(cPassword.getOldPassword()))){
+            throw new IllegalArgumentException("Old password does not match.");
+        }
+        if(!cPassword.getNewPassword().equals(cPassword.getReNewPassword())){
+            throw new IllegalArgumentException("New password and re-new password does not match.");
+        }
+        user.setPassword(encryptString(cPassword.getNewPassword()));
+        this.userRepository.save(user);
     }
 }

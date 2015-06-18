@@ -241,3 +241,19 @@ select {
 .loginbtn button{
     margin: 10px 0 10px 10px;
 }
+.profileForm{
+    float: left;
+    width: 60%;
+}
+.prfileImage{
+    float: left;
+    width: 38%;
+    margin-bottom: 5px;
+}
+.prfileImage img{
+    border-radius: 5px;
+    border: green solid 2px;
+}
+.msg{
+    color: green;
+}

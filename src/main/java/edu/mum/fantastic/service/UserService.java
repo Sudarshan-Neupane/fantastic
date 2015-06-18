@@ -1,11 +1,14 @@
 package edu.mum.fantastic.service;
 
 import edu.mum.fantastic.domain.User;
+import edu.mum.fantastic.domain.ChangePassword;
 
 public interface UserService extends AbstractService<User> {
 
-	public User findByUserName(String userName);
+    public User findByUserName(String userName);
 
-	public void updateProfile(User user);
+    public void updateProfile(User user);
+
+    public void changePassword(String username, ChangePassword cPassword);
 
 }
