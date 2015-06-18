@@ -23,14 +23,14 @@
 	
 	
 
-	<beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+    <beans:bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources 
     in the /WEB-INF/views directory -->
     <beans:bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/" />
         <beans:property name="suffix" value=".jsp" />
-         <beans:property name="order" value="1"/>
+        <beans:property name="order" value="1"/>
     </beans:bean>
     <!--tiles configuration -->
     <beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -59,12 +59,12 @@
     <!-- Set default language  -->
     <beans:bean id="localeResolver"
                 class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-        <beans:property name="defaultLocale" value="en_US"/>
+        <beans:property name="defaultLocale" value="np"/>
     </beans:bean>
     <!-- validator message locator -->
     <beans:bean id="validator"
                 class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <beans:property name="validationMessageSource" ref="messageSource" />
     </beans:bean>
-
+    
 </beans:beans>
