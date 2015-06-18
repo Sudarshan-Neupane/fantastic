@@ -34,19 +34,19 @@
             <div class="travel">
                 <h2>Add your travel details</h2>
                 <form:form modelAttribute="travel">
-                    <form:label path="destination">Destination:</form:label>
+                    <form:label path="destination" cssClass="leftfloat">Destination:</form:label>
                     <form:input path="destination"  />
                     <form:errors path="destination" cssStyle="color:red"/><br/>
 
-                    <form:label path="dateFrom">From</form:label>
+                    <form:label path="dateFrom" cssClass="leftfloat">From</form:label>
                     <form:input path="dateFrom" />
                     <form:errors path="dateFrom"/><br/>
 
-                    <form:label path="dateTo">To</form:label>
+                    <form:label path="dateTo" cssClass="leftfloat">To</form:label>
                     <form:input path="dateTo" />
                     <form:errors path="dateTo"/><br/>
 
-                    <form:label path="description">Description</form:label>
+                    <form:label path="description" cssClass="leftfloat">Description</form:label>
                     <form:textarea path="description" cols="25" rows="5"/>
                     <form:errors path="description"/><br/>
                     <br/>

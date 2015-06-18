@@ -80,8 +80,11 @@ h3{
     width: 201px;
     margin: 10px;
 }*/
-label { width: 136px; float: left; margin-left: 8px;
+label { width: 136px; /* float: left; */ margin-left: 8px;
         font-weight: bold;
+}
+.leftfloat{
+    float: left;
 }
 button{
     color: #fff;
@@ -188,3 +191,11 @@ select {
    border-radius: 5px;
    height: 34px;
    }
+   .error{
+       color: red;
+   }
+/*   .radiobutton label{
+       color:red;
+       all: none;
+       display: none;
+   }*/

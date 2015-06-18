@@ -21,21 +21,21 @@
             <div class="travel">
                 <h2>Dating</h2>
                 <form:form modelAttribute="dating">
-                    <form:label path="interestedOn">Interested On</form:label>
+                    <form:label path="interestedOn" cssClass="leftfloat">Interested On</form:label>
                     <form:select path="interestedOn">
                         <form:option value="-" selected="selected">Select gender</form:option>
                         <form:options items="${gender}"/>
                     </form:select>
                     <form:errors path="interestedOn" /><br/>
 
-                    <form:label path="interestedAge">Interested Age</form:label>
+                    <form:label path="interestedAge" cssClass="leftfloat">Interested Age</form:label>
                     <form:select path="interestedAge">
                         <form:option value="-" selected="selected">Select Interested Age</form:option>
                         <form:options items="${ageGroup}"/>
                     </form:select>
                     <form:errors path="interestedAge" /><br/>
                     <br>
-                    <form:label path="description">Description</form:label>
+                    <form:label path="description" cssClass="leftfloat">Description</form:label>
                     <form:textarea path="description"/>
                     <form:errors path="description" /><br/>
                     <input type="submit"  value="Submit" />
