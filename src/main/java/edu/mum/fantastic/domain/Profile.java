@@ -17,8 +17,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import org.hibernate.annotations.CollectionId;
 
 @Entity(name = "profiles")
 public class Profile implements Serializable {
@@ -32,9 +30,10 @@ public class Profile implements Serializable {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @Size(min = 8)
-    @Column(name = "phone_number")
-    private String phoneNumber;
+    @Valid
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "phone_id")
+    private Phone phone;
 
     @Temporal(javax.persistence.TemporalType.DATE)
     @Column(name = "date_of_birth")
@@ -50,11 +49,11 @@ public class Profile implements Serializable {
     public Profile() {
     }
 
-    public Profile(Gender gender, String phoneNumber,
+    public Profile(Gender gender, Phone phoneNumber,
             Date dob, Address address) {
         super();
         this.gender = gender;
-        this.phoneNumber = phoneNumber;
+        this.phone = phoneNumber;
         this.dateOfBirth = dob;
         this.address = address;
     }
@@ -75,12 +74,12 @@ public class Profile implements Serializable {
         this.gender = gender;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public Phone getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 
     public Date getDateOfBirth() {

@@ -21,7 +21,8 @@
             <h2>Sign up page</h2>
             <form:form commandName="user">
                 <table>
-                    <caption>${errors}</caption>
+                    <caption>${errors}
+                        <form:errors path="*"/></caption>
                     <tr>
                         <td><form:label path="firstName">First Name:<em>*</em> </form:label></td>
                         <td><form:input path="firstName"/></td>

@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.mum.fantastic.domain.Address;
+import edu.mum.fantastic.domain.Phone;
 import edu.mum.fantastic.domain.Profile;
 import edu.mum.fantastic.domain.Profile.Gender;
 import edu.mum.fantastic.domain.User;
@@ -48,10 +49,13 @@ public class UserTest extends BaseTest {
 	// @DependsOn(value = edu.mum.fantastic.test.UserTest.addUserTest)
 	public void updateUserTest() {
 		User user = userService.findByUserName(USER_NAME);
-		
+		Phone p = new Phone();
+                p.setArea("319");
+                p.setPrefixValue("614");
+                p.setNumber("0233");
 		user.setLastName(CHANGED_LAST_NAME);
 		Address address = new Address(ADDRESS1, ADDRESS2, CITY, STATE, ZIP_CODE);
-		Profile profile = new Profile(Gender.MALE, MOBILE, new Date(), address);
+		Profile profile = new Profile(Gender.MALE, p, new Date(), address);
                 profile.setCategory(Profile.Category.SPORT);
 		user.setProfile(profile);
 		userService.update(user);

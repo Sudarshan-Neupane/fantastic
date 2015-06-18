@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.mum.fantastic.domain.User;
 import edu.mum.fantastic.service.UserService;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 @Controller
 public class SignupController {
@@ -28,12 +30,22 @@ public class SignupController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String runSignup(@ModelAttribute User user, Model model) {
-        if (user.getFirstName().trim() == null || user.getLastName().trim() == null
-                || user.getUserName().trim() == null || user.getPassword().trim() == null
-                || user.getRePassword() == null) {
-            model.addAttribute("errors", "Invalid values.");
-            return "";
+    public String runSignup(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+//        if (user.getFirstName().trim() == null
+//                || user.getLastName().trim() == null
+//                || user.getUserName().trim() == null
+//                || user.getPassword().trim() == null
+//                || user.getRePassword() == null
+//                || user.getFirstName().isEmpty()
+//                || user.getLastName().isEmpty()
+//                || user.getUserName().isEmpty()
+//                || user.getPassword().isEmpty()
+//                || user.getRePassword().isEmpty()) {
+//            model.addAttribute("errors", "Invalid values.");
+//            return "";
+//        }
+        if(result.hasErrors()){
+            return "signup";
         }
         if (!user.getPassword().equals(user.getRePassword())) {
             model.addAttribute("errors", "Password does not match.");

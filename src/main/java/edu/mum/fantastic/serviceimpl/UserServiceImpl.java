@@ -64,6 +64,7 @@ class UserServiceImpl implements UserService {
         if (user.getProfile() == null) {
             throw new IllegalArgumentException("Profile not found.");
         }
+        user.setFirstLogin(false);
         this.userRepository.save(user);
 
     }

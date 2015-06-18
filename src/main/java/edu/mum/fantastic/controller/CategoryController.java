@@ -19,64 +19,69 @@ import edu.mum.fantastic.domain.Category;
 import edu.mum.fantastic.service.CategoryService;
 
 @Controller
-@RequestMapping(value = "/sec/category")
+@RequestMapping(value = "/sec")
 public class CategoryController {
 
-	@Autowired
-	private CategoryService categoryService;
+    @Autowired
+    private CategoryService categoryService;
 
-	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
-	public String listOfCategory(Model model) {
+    @RequestMapping(value = "/categories", method = RequestMethod.GET)
+    public String listCategory(Model model) {
+        List<Category> list = this.categoryService.findAll();
+        model.addAttribute("categories", list);
+        return "category";
+    }
 
-		List<Category> categories = categoryService.findAll();
-		model.addAttribute("categories", categories);
-		return "categoryList";
-	}
+    @RequestMapping(value = {"/admin/category", "/admin/category/list"}, method = RequestMethod.GET)
+    public String listOfCategory(Model model) {
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public String getAddNewCategoryForm(Model model) {
-		Category newCategory = new Category();
-		model.addAttribute("newCategory",newCategory);
-		return "addCategoryForm";
-	}
+        List<Category> categories = categoryService.findAll();
+        model.addAttribute("categories", categories);
+        return "categoryList";
+    }
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String getAddNewCategoryForm(@ModelAttribute("newCategory") @Valid Category category, BindingResult result) {
-		if (result.hasErrors()) {
-			return "addCategoryForm";
-		}
-		categoryService.add(category);
-		return "redirect:/category/list";
-	}
+    @RequestMapping(value = "/admin/category/add", method = RequestMethod.GET)
+    public String getAddNewCategoryForm(Model model) {
+        Category newCategory = new Category();
+        model.addAttribute("newCategory", newCategory);
+        return "addCategoryForm";
+    }
 
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-	public ModelAndView editCategory(@PathVariable Long id) {
-		ModelAndView modelAndView = new ModelAndView("editCategoryForm");
-		Category category = categoryService.findById(id);
-		modelAndView.addObject("category", category);
-		return modelAndView;
-	}
+    @RequestMapping(value = "/admin/category/add", method = RequestMethod.POST)
+    public String getAddNewCategoryForm(@ModelAttribute("newCategory") @Valid Category category, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addCategoryForm";
+        }
+        categoryService.add(category);
+        return "redirect:/sec/admin/category/list";
+    }
 
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView editCategory(@ModelAttribute Category category, @PathVariable Long id, final RedirectAttributes redirectAttributes) {
-		ModelAndView mav = new ModelAndView("redirect:/category/list");
-	    String message = "Category was successfully updated.";
-		categoryService.update(category);
+    @RequestMapping(value = "/admin/category/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView editCategory(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("editCategoryForm");
+        Category category = categoryService.findById(id);
+        modelAndView.addObject("category", category);
+        return modelAndView;
+    }
 
-		redirectAttributes.addFlashAttribute("message", message);  
-        return mav;
-	}
-	
-	  @RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
-	    public ModelAndView deleteCategory(@PathVariable Long id, final RedirectAttributes redirectAttributes) {
-	         
-	        ModelAndView mav = new ModelAndView("redirect:/category/list");   
-	        Category category = categoryService.findById(id);
-	       categoryService.remove(category);
-	        String message = "The Category "+category.getCategoryName()+" was successfully deleted.";
-	         
-	        redirectAttributes.addFlashAttribute("message", message);
-	        return mav;
-	    }
+    @RequestMapping(value = "/admin/category/edit/{id}", method = RequestMethod.POST)
+    public String editCategory(@ModelAttribute Category category, @PathVariable Long id, final RedirectAttributes redirectAttributes) {
+        String message = "Category was successfully updated.";
+        categoryService.update(category);
+
+        redirectAttributes.addFlashAttribute("message", message);
+        return "redirect:/sec/admin/category/list";
+    }
+
+    @RequestMapping(value = "/admin/category/delete/{id}", method = RequestMethod.GET)
+    public String deleteCategory(@PathVariable Long id, final RedirectAttributes redirectAttributes) {
+
+        Category category = categoryService.findById(id);
+        categoryService.remove(category);
+        String message = "The Category " + category.getCategoryName() + " was successfully deleted.";
+
+        redirectAttributes.addFlashAttribute("message", message);
+        return "redirect:/sec/admin/category/list";
+    }
 
 }

@@ -30,10 +30,12 @@ public class HomeController {
     public String login(Model model) {
         logger.info("Welcome home! The client is goint to login." + new Date());
         User user = userService.findByUserName(SpringUtils.getUserName());
+        logger.info("check if profile is upgraded or not.");
         if (user.isFirstLogin()) {
             return "redirect:profile";
         }
-        return "return:category";
+        logger.info("redirect to category");
+        return "redirect:category";
     }
 
 }

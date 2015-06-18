@@ -33,8 +33,14 @@ public class ProfileController {
         }
         System.out.println(user.getUserName());
         System.out.println(user.getUserName());
+        Profile profile;
         model.addAttribute("user", user);
-        model.addAttribute("profile", new Profile());
+        if (user.getProfile() == null) {
+            profile = new Profile();
+        } else {
+            profile = user.getProfile();
+        }
+        model.addAttribute("profile", profile);
         model.addAttribute("gender", Profile.Gender.values());
         model.addAttribute("interestedField", Profile.Category.values());
         return "profile";
