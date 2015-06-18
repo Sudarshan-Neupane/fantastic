@@ -37,5 +37,9 @@
                 <put-attribute name="title" value="~ Travel List~"/>
                 <put-attribute name="body" value="/WEB-INF/views/travelList.jsp"/>
         </definition>
+        <definition name="datingList" extends="baseLayout">
+                <put-attribute name="title" value="~ Dating List~"/>
+                <put-attribute name="body" value="/WEB-INF/views/datingList.jsp"/>
+        </definition>
         
 </tiles-definitions>

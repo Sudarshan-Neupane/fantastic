@@ -23,6 +23,14 @@
     float: right;
     height: 200px;
 }
+.menuLink{  
+    float: right;
+    margin: 50px;
+}
+.menuLink a{
+     color:#006B00;
+     text-decoration: none;
+}
 input[type="text"]{
     width: 280px;
     border: solid 1px #85b1de;

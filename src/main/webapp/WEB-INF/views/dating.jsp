@@ -26,18 +26,18 @@
                         <form:option value="-" selected="selected">Select gender</form:option>
                         <form:options items="${gender}"/>
                     </form:select>
-                    <form:errors path="interestedOn" /><br/>
+                    <form:errors path="interestedOn" cssClass="error"/><br/>
 
                     <form:label path="interestedAge" cssClass="leftfloat">Interested Age</form:label>
                     <form:select path="interestedAge">
                         <form:option value="-" selected="selected">Select Interested Age</form:option>
                         <form:options items="${ageGroup}"/>
                     </form:select>
-                    <form:errors path="interestedAge" /><br/>
+                    <form:errors path="interestedAge" cssClass="error"/><br/>
                     <br>
                     <form:label path="description" cssClass="leftfloat">Description</form:label>
                     <form:textarea path="description"/>
-                    <form:errors path="description" /><br/>
+                    <form:errors path="description" cssClass="error" /><br/>
                     <input type="submit"  value="Submit" />
                 </form:form>
             </div>

@@ -42,7 +42,6 @@ public class Dating implements Serializable {
     @Valid
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    @Transient
     private User user;
 
     public Dating() {
