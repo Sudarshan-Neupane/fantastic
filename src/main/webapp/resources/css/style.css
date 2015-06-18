@@ -1,3 +1,7 @@
+*{
+    margin: 0px auto;
+    padding: 0px auto;
+}
 .wrapper{
     width:960px;
     margin: 0px auto;
@@ -5,7 +9,8 @@
     border-right: 1px solid #006B00;
     border-bottom:1px solid #006B00;
     padding-top: 0px;
-    height: 700px;
+    height: auto;
+    overflow:auto;
 }
 .logo{
     width: 183px;
@@ -23,6 +28,7 @@ input[type="text"]{
     border: solid 1px #85b1de;
     height: 30px;
     margin: 10px;
+    padding-left: 8px;
 }
 input[type="password"]{
     width: 280px;
@@ -33,6 +39,8 @@ input[type="password"]{
 textarea{
     width: 285px;
     border: solid 1px #85b1de;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 input[type="submit"]{
     width: 130px;
@@ -57,7 +65,13 @@ input[type="reset"]{
 h2{
     color:#006B00;
     text-transform: capitalize;
- 
+    margin-left: 10px;
+}
+h3{
+    color:#006B00;
+    text-transform: capitalize;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 /*label{
     width: 201px;
@@ -78,6 +92,7 @@ button{
 }
 hr{
     border: 1px solid #3399FF;
+    margin-bottom: 10px;
 }
 .slogan{
     margin-top: 100px;
@@ -92,7 +107,7 @@ hr{
     width: 440px;
     float: left;
     margin-top: 20px;
-    
+
     margin-left: 5px;
 }
 .loginLeft{
@@ -101,5 +116,57 @@ hr{
     width: 510px;
     height: 400px;
     border-radius: 10px;
+
+}
+.profileimage{
+    width: 105px;
+    height: 115px;
+    float: left;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #006B00;
+}
+.travelDetails{
+    width: 412px;
+    padding: 5px;
+    height: 200px;
+    border: 1px solid #006B00;
+    float: left;
+    margin: 10px;
+}
+.travelOtherPost{
+    width: 346px;
+    padding: 5px;
+    border: 1px solid #006B00;
+    float: right;
+    margin: 10px;
+    height: auto;
+    overflow:auto;
+}
+.travelOtherPost .prof{
+    width: 19%;
+    height: 65px;
+    float: left;
+    margin-right: 3px;
+}
+.travelOtherPost .details{
+    width: 78%;
+    height: 83px;
+    border: 1px solid #006B00;
+    float: left;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding-left: 5px;
+}
+.travelOtherPost .details a{
+    float: right;
+    text-decoration: none;
+    color: #3399FF;
+    padding-left: 5px;
+     padding-right: 3px;
+}
+.mytravel{
+    width: 582px;
+    float: left;
     
 }

@@ -12,40 +12,61 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Display lists</title>
         <style>
-            body{
-                margin: 0px auto;
-                width: 600px;
-            }
-          tr:nth-child(odd){ background-color:#eee; }
-          .travelContainer{
-              width: 960px;
-              margin:0px auto;
-          }
-          .userProfile{
-              
-              
-          }
+            /*            body{
+                            margin: 0px auto;
+                            width: 600px;
+                        }
+                      tr:nth-child(odd){ background-color:#eee; }
+                      .travelContainer{
+                          width: 960px;
+                          margin:0px auto;
+                      }
+                      .userProfile{ 
+                          
+                      }*/
         </style>
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
     </head>
     <body>
-        <div class="travelContainer">
-        <h1>Travel lists</h1>
-        <table>
-            <tr> <td>Id </td><td>Username</td><td>Destination</td><td>Date From</td> <td>Date To</td>
-                <td>Destination</td>
-            </tr> 
-            <c:forEach items="${travellist}" var="lists">
-                <tr>
-                    <td>${lists.id}</td>
-                    <td> User AA</td>
-                    <td>${lists.destination} </td>
-                    <td> ${lists.dateFrom} </td>
-                    <td> ${lists.dateTo} </td>
-                    <td>${lists.description}</td>
-                </tr>
-            </c:forEach>
-                
-        </table>
-        </div>
+        <div class="wrapper">
+            <div class="logo"></div>
+            <div class="menu">
+                <div class="slogan"> Fantastic4 Connecting People
+                </div>
+            </div>
+            <hr/>    
+            <div class="travelContainer">
+                <h2>My Travel Posts</h2>
+
+                <div class="mytravel">
+                    <div class="profileimage">
+                        <img src="<c:url value="resources/images/no_pic.jpg"/>" alt="user images"/>
+                        <!--<img src="../../resources/images/no_pic.jpg" alt="User Image"/>-->
+                    </div>
+                    <div class="travelDetails">
+                        fdfsdf
+                    </div>
+                </div>
+
+                <div class="travelOtherPost">
+                    <h3>Peoples who want to travel</h3>
+                    <c:forEach items="${travellist}" var="lists">
+                        <div class="prof">
+                            <img src='<c:url value="resources/images/no-user-image.gif"/>' alt="friends">
+                            <br>
+                            Royan
+                        </div>
+                        <div class="details">
+                            <b>${lists.destination}</b>
+                            <br/>
+                            <em> ${lists.dateFrom} </em> To <em> ${lists.dateTo} </em>
+                            <br>
+                            ${lists.description}<br>
+                            <a href="#"> Connect </a> <a href="#"> Details </a>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>    
     </body>
 </html>
