@@ -3,7 +3,6 @@ package edu.mum.fantastic.serviceimpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import edu.mum.fantastic.domain.Authority;
@@ -22,7 +21,7 @@ class UserServiceImpl implements UserService {
     @Override
     public void add(User t) {
         if (this.userRepository.findByUserName(t.getUserName()) != null) {
-            throw new IllegalArgumentException("Invalid user.");
+            throw new IllegalArgumentException("Invalid user name.");
         }
         Authority auth = new Authority();
         auth.setUsername(t.getUserName());

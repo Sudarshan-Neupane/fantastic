@@ -31,7 +31,7 @@ public class SignupController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String runSignup(@Valid @ModelAttribute("user") User user, 
+    public String runSignup(@Valid @ModelAttribute("user") User user,
             BindingResult result, Model model, RedirectAttributes attributes) {
 //        if (user.getFirstName().trim() == null
 //                || user.getLastName().trim() == null
@@ -46,7 +46,7 @@ public class SignupController {
 //            model.addAttribute("errors", "Invalid values.");
 //            return "";
 //        }
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             return "signup";
         }
         if (!user.getPassword().equals(user.getRePassword())) {
@@ -54,10 +54,15 @@ public class SignupController {
             return "signup";
         }
         logger.info("User form without values.");
-        userService.add(user);
-        attributes.addFlashAttribute("msg", "Please login to verify your credential.");
-        logger.info("redirect to /login.");
+        try {
+            userService.add(user);
+            attributes.addFlashAttribute("msg", "Please login to verify your credential.");
+            logger.info("redirect to /login.");
+            return "redirect:/login";
+        } catch (IllegalArgumentException ex) {
+            model.addAttribute("errors", ex.getMessage());
+        }
+        return "signup";
 
-        return "redirect:/login";
     }
 }

@@ -2,6 +2,9 @@
     margin: 0px auto;
     padding: 0px auto;
 }
+h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
 .wrapper{
     width:960px;
     margin: 0px auto;
@@ -14,28 +17,31 @@
 }
 .logo{
     width: 183px;
-    background-image: url('../images/logo.png');  
-    height: 200px;
-    float: left;   
+    /*background-image: url('../images/logo.png');*/  
+    /*height: 200px;*/
+    float: left; 
+    margin-left: 30px;
 }
 .menu{
-    width: 777px;
-    float: right;
-    height: 200px;
+    /*width: 777px;*/
+    float: left;
+    /*height: 200px;*/
+    text-align: center;
+
 }
 .menuLink{  
     float: right;
-    margin: 50px;
+    margin: 5px 10px;
 }
 .menuLink a{
-     color:#006B00;
-     text-decoration: none;
+    color:#006B00;
+    text-decoration: none;
 }
-input[type="text"]{
+input[type="text"], input[type="password"]{
     width: 280px;
     border: solid 1px #85b1de;
     height: 30px;
-    margin: 10px;
+    margin: 5px;
     padding-left: 8px;
 }
 input[type="password"]{
@@ -67,9 +73,15 @@ input[type="reset"]{
     color: #fff;
 
 }
+.radiobtns{
+    margin-top: 10px;
+}
+.radiobutton span{
+    margin: 5px;
+}
 .travel{
-    width: 600px;
-    border: solid 1px #3399FF;
+    /*width: 600px;*/
+    border-top: solid 1px #3399FF;
     margin: 0px auto;
     padding: 5px;
 }
@@ -88,7 +100,7 @@ h3{
     width: 201px;
     margin: 10px;
 }*/
-label { width: 136px; /* float: left; */ margin-left: 8px;
+label { width: 160px; /* float: left; */ margin-left: 8px; margin-top: 12px;
         font-weight: bold;
 }
 .leftfloat{
@@ -109,11 +121,11 @@ hr{
     margin-bottom: 10px;
 }
 .slogan{
-    margin-top: 100px;
-    margin-left: 30px;
-    color:#006B00;
-    font-size: 25px;
+    color: #006b00;
+    font-size: 50px;
     font-weight: bold;
+    margin-left: 30px;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -126,10 +138,12 @@ hr{
 }
 .loginLeft{
     background-image: url('../images/connect.jpg');
-    float: right;
-    width: 510px;
-    height: 400px;
     border-radius: 10px;
+    float: right;
+    height: 400px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    width: 504px;
 
 }
 .profileimage{
@@ -177,42 +191,53 @@ hr{
     text-decoration: none;
     color: #3399FF;
     padding-left: 5px;
-     padding-right: 3px;
+    padding-right: 3px;
 }
 .mytravel{
     width: 582px;
     float: left;
-    
+
 }
 .signin{
-    margin-top: 247px;
+    /*margin-top: 247px;*/
 }
 
 select {
-   background: #9EBF5E;
-   width: 268px;
-   margin-top: 10px;
-   padding: 5px;
-   font-size: 16px;
-   line-height: 1;
-   border: 0;
-   border-radius: 5px;
-   height: 34px;
-   }
-   .error{
-       color: red;
-   }
+    background: #9EBF5E;
+    width: 268px;
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+}
+.error{
+    color: red;
+}
 /*   .radiobutton label{
        color:red;
        all: none;
        display: none;
    }*/
-
+.footer:before{
+    border: 1px solid #3399FF;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
 .footer
 {
-   width: 960px;
-   text-align: center;
-   margin: 0px auto;
-   color: #006B00;
-   
+    text-align: center;
+    margin: 0px auto;
+    color: #006B00;
+    bottom: 0;
+    position: relative;
+
+}
+.clear{
+    clear: both;
+}
+.loginbtn button{
+    margin: 10px 0 10px 10px;
 }

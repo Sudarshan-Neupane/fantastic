@@ -12,16 +12,17 @@
     <body>
         <div class="wrapper">
 
-            <div class="logo"></div>
+            <div class="logo"><img src='<spring:url value="/resources/images/logo.png"/>' height="160"/></div>
             <div class="menu">
-                <div class="slogan"> Fantastic4 Connecting People
+                <div class="slogan"> Connecting People
                 </div>
             </div>
+            <div class="clear"></div>
             <hr/>
             <h2>Sign up page</h2>
             <form:form commandName="user">
                 <table>
-                    <caption>${errors}</caption>
+                    <caption class="error">${errors}</caption>
                     <tr>
                         <td><form:label path="firstName">First Name:<em>*</em> </form:label></td>
                         <td><form:input path="firstName"/></td>
@@ -54,12 +55,18 @@
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
-                        <td colspan="2"><input type="reset" value="Reset"/>&nbsp;&nbsp;
-                            <input type="submit" value="Submit"/></td>
+                        <td colspan="2"><input type="submit" value="Submit"/>&nbsp;&nbsp;
+                            <input type="reset" value="Reset"/></td>
                     </tr>
                 </table>
             </form:form>
+            <a href='<spring:url value="/login"></spring:url>' class="loginbtn"><button>Go to Login...</button></a>
+            <div class="clear"></div>
+            <hr/>
+            <div class="footer">
+                &copy; Fantastic group 2015
+            </div>
         </div>
-    
+
     </body>
 </html>

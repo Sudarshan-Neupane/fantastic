@@ -29,7 +29,7 @@
 		<put-attribute name="title" value="Category List" />
 		<put-attribute name="body" value="/WEB-INF/views/categoryList.jsp" />
 	</definition>
-	<definition name="Profile" extends="baseLayout">
+	<definition name="profile" extends="baseLayout">
 		<put-attribute name="title" value="Profile" />
 		<put-attribute name="body" value="/WEB-INF/views/profile.jsp" />
 	</definition>

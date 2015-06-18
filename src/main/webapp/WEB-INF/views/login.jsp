@@ -9,11 +9,12 @@
     <body>
         <div class="wrapper">
 
-            <div class="logo"></div>
+            <div class="logo"><img src='<spring:url value="/resources/images/logo.png"/>' height="160"/></div>
             <div class="menu">
-                <div class="slogan"> Fantastic4 Connecting People
+                <div class="slogan"> Connecting People
                 </div>
             </div>
+            <div class="clear"></div>
             <hr/>
             <div class="login">
                 <h2 class="form-signin-heading">Login Page</h2>
@@ -39,8 +40,13 @@
 
                 <div class="loginLeft"></div>
                 <div class="signin">
-                    <a href='<spring:url value="/signup"></spring:url>'><button>Create new Account</button></a>
+                    <a href='<spring:url value="/signup"></spring:url>' class="loginbtn"><button>Create new Account</button></a>
 
+            </div>
+            <div class="clear"></div>
+            <hr/>
+            <div class="footer">
+                &copy; Fantastic group 2015
             </div>
         </div>
     </body>
