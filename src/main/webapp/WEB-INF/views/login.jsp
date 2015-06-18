@@ -17,6 +17,7 @@
             <hr/>
             <div class="login">
                 <h2 class="form-signin-heading">Login Page</h2>
+                ${msg}
                 <c:if test="${not empty error}">
                     <div class="error">Invalid Username of Password</div>
                 </c:if>

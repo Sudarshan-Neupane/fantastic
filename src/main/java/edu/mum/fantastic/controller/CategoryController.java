@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mum.fantastic.domain.Category;
+import edu.mum.fantastic.domain.Dating;
 import edu.mum.fantastic.service.CategoryService;
 
 @Controller
@@ -29,6 +30,19 @@ public class CategoryController {
     public String listCategory(Model model) {
         List<Category> list = this.categoryService.findAll();
         model.addAttribute("categories", list);
+        model.addAttribute("category", new Category());
+        return "category";
+    }
+    @RequestMapping(value = "/categories", method = RequestMethod.POST)
+    public String selectCategory(@ModelAttribute Category category, Model model) {
+        List<Category> list = this.categoryService.findAll();
+        model.addAttribute("categories", list);
+        Category c = this.categoryService.findById(category.getId());
+        if(c.getId() == 1){
+            return "redirect:/sec/dating";
+        }else if(c.getId() == 2){
+            return "redirect:/sec/travel";
+        }
         return "category";
     }
 

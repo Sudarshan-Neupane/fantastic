@@ -1,13 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<body>
-    <div class="wrapper">
-        <div class="logo"></div>
-        <div class="menu">
-            <div class="slogan"> Fantastic4 Connecting People
-            </div>
-        </div>
-        <hr/>
+   
         <div class="travel">
             <h2>Add your travel details</h2>
             <form:form modelAttribute="travel">
@@ -33,4 +26,3 @@
 
             </form:form>
         </div>
-    </div>

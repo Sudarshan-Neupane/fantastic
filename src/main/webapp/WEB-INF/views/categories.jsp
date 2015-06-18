@@ -3,15 +3,12 @@
     Created on : Jun 17, 2015, 7:52:45 PM
     Author     : bipin
 --%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<div class="travel">
+    <form:form modelAttribute="category" method="post">
+        <form:select items="${categories}" path="id" itemValue="id" itemLabel="categoryName"></form:select>
+        <form:button type="submit">Submit</form:button>
+    </form:form>
+</div>

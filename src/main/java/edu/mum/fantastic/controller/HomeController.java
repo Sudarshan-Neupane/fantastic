@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping(value="/sec")
+@RequestMapping(value = "/sec")
 public class HomeController {
 
     private static final Logger logger = LoggerFactory
@@ -30,12 +30,12 @@ public class HomeController {
     public String login(Model model) {
         logger.info("Welcome home! The client is goint to login." + new Date());
         User user = userService.findByUserName(SpringUtils.getUserName());
-        logger.info("check if profile is upgraded or not.");
+        logger.info("check if profile is upgraded or not for :" + SpringUtils.getUserName());
         if (user.isFirstLogin()) {
             return "redirect:profile";
         }
         logger.info("redirect to category");
-        return "redirect:category";
+        return "redirect:categories";
     }
 
 }

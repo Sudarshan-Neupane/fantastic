@@ -10,14 +10,7 @@
         <link href="${mainCss}" rel="stylesheet" />
     </head>
     <body>
-        <div class="wrapper">
-
-            <div class="logo"></div>
-            <div class="menu">
-                <div class="slogan"> Fantastic4 Connecting People
-                </div>
-            </div>
-            <hr/>
+        
             <div class="travel">
                 <h2>Dating</h2>
                 <form:form modelAttribute="dating">

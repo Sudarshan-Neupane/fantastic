@@ -24,3 +24,11 @@
         <spring:url value="/resources/css/style.css" var="mainCss" />
         <link href="${mainCss}" rel="stylesheet" />
     </head>
+    <div class="wrapper">
+
+            <div class="logo"></div>
+            <div class="menu">
+                <div class="slogan"> Fantastic4 Connecting People
+                </div>
+            </div>
+            <hr/>

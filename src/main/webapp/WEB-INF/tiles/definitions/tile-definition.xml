@@ -19,7 +19,11 @@
 	</definition>
 	<definition name="category" extends="baseLayout">
 		<put-attribute name="title" value="Category List" />
-		<put-attribute name="body" value="/WEB-INF/views/categoryList.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/categories.jsp" />
+	</definition>
+        <definition name="dating" extends="baseLayout">
+		<put-attribute name="title" value="Category List" />
+		<put-attribute name="body" value="/WEB-INF/views/dating.jsp" />
 	</definition>
 	<definition name="list" extends="baseLayout">
 		<put-attribute name="title" value="Category List" />

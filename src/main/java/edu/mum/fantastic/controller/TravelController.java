@@ -20,6 +20,7 @@ import org.springframework.ui.Model;
 
 
 @Controller
+@RequestMapping("/sec")
 public class TravelController {
     private static final Logger logger = LoggerFactory.getLogger(TravelController.class);
     @Autowired

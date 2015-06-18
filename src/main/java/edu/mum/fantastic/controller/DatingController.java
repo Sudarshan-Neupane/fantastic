@@ -21,7 +21,7 @@ import org.springframework.validation.BindingResult;
  * @author sudarshan
  */
 @Controller
-@RequestMapping("/dating")
+@RequestMapping("/sec/dating")
 public class DatingController {
 
     @Autowired
@@ -29,7 +29,7 @@ public class DatingController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = {"","/add"}, method = RequestMethod.GET)
     public String dating(@ModelAttribute Dating dating, Model model) {
         model.addAttribute("gender", Profile.Gender.values());
         model.addAttribute("ageGroup", Dating.InterestedAge.values());
@@ -37,7 +37,7 @@ public class DatingController {
 
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = {"","/add"}, method = RequestMethod.POST)
     public String addDating(@Valid @ModelAttribute Dating dating, BindingResult result) {
         if (result.hasErrors()) {
             return "dating";
@@ -45,10 +45,10 @@ public class DatingController {
         User user = this.userService.findByUserName(SpringUtils.getUserName());
         dating.setUser(user);
         this.datingService.add(dating);
-        return "redirect:list";
+        return "redirect:/sec/dating/list";
     }
     
-    @RequestMapping(value="/datinglist", method=RequestMethod.GET)
+    @RequestMapping(value="/list", method=RequestMethod.GET)
     public String datingList(Model model){
         List<Dating> datingList = datingService.findAll();
         model.addAttribute("datinglist",datingList);

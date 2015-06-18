@@ -13,6 +13,7 @@ import edu.mum.fantastic.domain.User;
 import edu.mum.fantastic.service.UserService;
 import javax.validation.Valid;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class SignupController {
@@ -30,7 +31,8 @@ public class SignupController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String runSignup(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
+    public String runSignup(@Valid @ModelAttribute("user") User user, 
+            BindingResult result, Model model, RedirectAttributes attributes) {
 //        if (user.getFirstName().trim() == null
 //                || user.getLastName().trim() == null
 //                || user.getUserName().trim() == null
@@ -48,13 +50,14 @@ public class SignupController {
             return "signup";
         }
         if (!user.getPassword().equals(user.getRePassword())) {
-            model.addAttribute("errors", "Password does not match.");
-            return "";
+            model.addAttribute("errors", "Password and Re-Password does not match.");
+            return "signup";
         }
         logger.info("User form without values.");
         userService.add(user);
-        logger.info("redirect to /sec/home.");
+        attributes.addFlashAttribute("msg", "Please login to verify your credential.");
+        logger.info("redirect to /login.");
 
-        return "redirect:/sec/home";
+        return "redirect:/login";
     }
 }
