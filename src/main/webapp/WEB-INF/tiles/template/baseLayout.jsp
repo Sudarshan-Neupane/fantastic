@@ -12,21 +12,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><tiles:insertAttribute name="title"/></title>
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <style type="text/css">
-        .login{
-          width:450px;
-          margin:0px auto;
-          padding:25px;
-          background-color: #ccc;
-         -webkit-border-radius: 25px;
-		 -moz-border-radius: 25px;
-		 border-radius: 25px;
-		 box-shadow: 10px 10px 5px #888888;
-		 
-          
-        }
-        </style>
     </head>
     <body>
         <header>

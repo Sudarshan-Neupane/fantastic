@@ -199,3 +199,12 @@ select {
        all: none;
        display: none;
    }*/
+
+.footer
+{
+   width: 960px;
+   text-align: center;
+   margin: 0px auto;
+   color: #006B00;
+   
+}

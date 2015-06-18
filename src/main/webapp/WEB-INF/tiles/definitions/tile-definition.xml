@@ -29,4 +29,13 @@
 		<put-attribute name="title" value="Profile" />
 		<put-attribute name="body" value="/WEB-INF/views/profile.jsp" />
 	</definition>
+        <definition name="travel" extends="baseLayout">
+                <put-attribute name="title" value="~ Travel~"/>
+                <put-attribute name="body" value="/WEB-INF/views/travel.jsp"/>
+        </definition>
+        <definition name="travelList" extends="baseLayout">
+                <put-attribute name="title" value="~ Travel List~"/>
+                <put-attribute name="body" value="/WEB-INF/views/travelList.jsp"/>
+        </definition>
+        
 </tiles-definitions>
