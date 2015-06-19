@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ *
+ * @author Gina
+ */
+ 
 @Entity(name = "categories")
 public class Category implements Serializable{
 	
