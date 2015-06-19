@@ -19,6 +19,11 @@ import edu.mum.fantastic.domain.Category;
 import edu.mum.fantastic.domain.Dating;
 import edu.mum.fantastic.service.CategoryService;
 
+/**
+ *
+ * @author gina
+ */
+ 
 @Controller
 @RequestMapping(value = "/sec")
 public class CategoryController {
