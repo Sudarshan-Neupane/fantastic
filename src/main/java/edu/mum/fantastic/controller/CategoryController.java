@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mum.fantastic.domain.Category;
-import edu.mum.fantastic.domain.Dating;
 import edu.mum.fantastic.service.CategoryService;
 
 /**

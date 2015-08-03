@@ -1,7 +1,7 @@
 package edu.mum.fantastic.service;
 
 import edu.mum.fantastic.domain.User;
-import edu.mum.fantastic.domain.ChangePassword;
+import edu.mum.fantastic.dto.ChangePassword;
 
 public interface UserService extends AbstractService<User> {
 

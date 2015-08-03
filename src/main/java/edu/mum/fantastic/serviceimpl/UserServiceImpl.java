@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import edu.mum.fantastic.domain.Authority;
 import edu.mum.fantastic.domain.Authority.Role;
 import edu.mum.fantastic.domain.User;
-import edu.mum.fantastic.domain.ChangePassword;
+import edu.mum.fantastic.dto.ChangePassword;
 import edu.mum.fantastic.repository.UserRepository;
 import edu.mum.fantastic.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

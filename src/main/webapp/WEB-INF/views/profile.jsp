@@ -64,9 +64,9 @@
             <br/>
             <br/>
             <div class="radiobutton">
-                <form:label path="category" cssClass="leftfloat">Interest Filed:</form:label> 
-                <form:checkboxes items="${interestedField}" itemLabel="value" path="category" cssClass="radiobtns"/>
-                <form:errors path="category"/> 
+                <form:label path="hobbies" cssClass="leftfloat">Interest Filed:</form:label> 
+                <form:checkboxes items="${interestedField}" itemLabel="value" path="hobbies" cssClass="radiobtns"/>
+                <form:errors path="hobbies"/> 
             </div>
             <br/>
             <form:button type="submit" id="btnUpdate">Update</form:button>

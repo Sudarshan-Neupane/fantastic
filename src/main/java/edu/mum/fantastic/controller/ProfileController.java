@@ -49,7 +49,7 @@ public class ProfileController {
         model.addAttribute("image", SpringUtils.getUserName() + ".jpg");
         model.addAttribute("profile", profile);
         model.addAttribute("gender", Profile.Gender.values());
-        model.addAttribute("interestedField", Profile.Category.values());
+        model.addAttribute("interestedField", Profile.Hobbies.values());
         return "profile";
 
     }
@@ -58,7 +58,7 @@ public class ProfileController {
     public String updateProfile(@Valid @ModelAttribute Profile profile, BindingResult result, Model model) {
         model.addAttribute("image", SpringUtils.getUserName() + ".jpg");
         model.addAttribute("gender", Profile.Gender.values());
-        model.addAttribute("interestedField", Profile.Category.values());
+        model.addAttribute("interestedField", Profile.Hobbies.values());
         if (result.hasErrors()) {
             return "profile";
         }

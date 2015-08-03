@@ -28,7 +28,7 @@
             <div class="details">
                 <b>${lists.description}</b>
                 <br/>
-                <em> ${lists.interestedAge} </em>  </em>
+                <em> ${lists.interestedAge} </em>
                 <br>
                 ${lists.interestedOn}<br>
                 <a href="#"> Connect </a> <a href="#"> Details </a>

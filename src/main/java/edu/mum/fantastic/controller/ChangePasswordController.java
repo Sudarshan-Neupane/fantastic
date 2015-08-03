@@ -1,6 +1,6 @@
 package edu.mum.fantastic.controller;
 
-import edu.mum.fantastic.domain.ChangePassword;
+import edu.mum.fantastic.dto.ChangePassword;
 import edu.mum.fantastic.sec.SpringUtils;
 import edu.mum.fantastic.service.UserService;
 import javax.validation.Valid;

@@ -1,7 +1,7 @@
 package edu.mum.fantastic.domain;
 
-import edu.mum.fantastic.domain.Profile.Gender;
 import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +15,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.data.annotation.Transient;
+
+import edu.mum.fantastic.domain.Profile.Gender;
 
 /**
  *

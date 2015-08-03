@@ -1,4 +1,4 @@
-package edu.mum.fantastic.domain;
+package edu.mum.fantastic.dto;
 
 import java.io.Serializable;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -9,7 +9,11 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class ChangePassword implements Serializable {
 
-    @NotEmpty
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@NotEmpty
     private String oldPassword;
     @NotEmpty
     private String newPassword;

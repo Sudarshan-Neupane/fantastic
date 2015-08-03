@@ -2,9 +2,11 @@ package edu.mum.fantastic.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
 import javax.persistence.Temporal;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -38,9 +41,13 @@ public class Profile implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
-    @NotNull
+//    @NotNull
     @Enumerated(EnumType.STRING)
-    private Category category;
+    @ElementCollection(targetClass = Hobbies.class, fetch = FetchType.EAGER)
+//    @JoinTable(name = "tblInterests", joinColumns = @JoinColumn(name = "id"))
+//    @Column(name = "interest", nullable = false)
+    @OrderColumn(name = "hobbies")
+    private Set<Hobbies> hobbies;
     @Valid
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
@@ -98,12 +105,12 @@ public class Profile implements Serializable {
         this.address = address;
     }
 
-    public Category getCategory() {
-        return category;
+    public Set<Hobbies> getHobbies() {
+        return hobbies;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setHobbies(Set<Hobbies> hobbies) {
+        this.hobbies = hobbies;
     }
 
     public enum Gender {
@@ -111,15 +118,15 @@ public class Profile implements Serializable {
         MALE, FEMALE, OTHER
     }
 
-    public enum Category {
+    public enum Hobbies {
 
-        SPORT("Sport", ""), WATCHINGMOVIE("Watching movie", ""), READINGBOOK(
-                "Reading Book", ""), TRAVEL("Travel", "");
+        SPORTS("Sports", ""), WATCHINGMOVIE("Watching movie", ""), READINGBOOK(
+                "Reading Book", ""), TRAVEL("Travel", ""), READING("Reading", "");
 
         private String value;
         private String desc;
 
-        private Category(String value, String desc) {
+        private Hobbies(String value, String desc) {
             this.value = value;
             this.desc = desc;
 

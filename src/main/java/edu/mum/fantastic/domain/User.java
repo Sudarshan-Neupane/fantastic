@@ -45,7 +45,7 @@ public class User implements Serializable {
     private boolean firstLogin = true;
 
     @Valid
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "profile_id")
     private Profile profile;
 
