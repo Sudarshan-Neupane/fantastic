@@ -1,9 +1,11 @@
 package edu.mum.fantastic.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
 
+import edu.mum.fantastic.dto.UserCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,7 @@ import edu.mum.fantastic.service.CategoryService;
 /**
  *
  * @author gina
+ * @Edited by bipin
  */
  
 @Controller
@@ -32,19 +35,20 @@ public class CategoryController {
 
     @RequestMapping(value = "/categories", method = RequestMethod.GET)
     public String listCategory(Model model) {
-        List<Category> list = this.categoryService.findAll();
+        List<edu.mum.fantastic.domain.enumeration.Category> list = Arrays.asList(edu.mum.fantastic.domain.enumeration.Category.values());
+        //List<Category> list = this.categoryService.findAll();
         model.addAttribute("categories", list);
-        model.addAttribute("category", new Category());
+        model.addAttribute("category", new UserCategory());
         return "category";
     }
     @RequestMapping(value = "/categories", method = RequestMethod.POST)
-    public String selectCategory(@ModelAttribute Category category, Model model) {
-        List<Category> list = this.categoryService.findAll();
+    public String selectCategory(@ModelAttribute UserCategory category, Model model) {
+        List<edu.mum.fantastic.domain.enumeration.Category> list = Arrays.asList(edu.mum.fantastic.domain.enumeration.Category.values());
         model.addAttribute("categories", list);
-        Category c = this.categoryService.findById(category.getId());
-        if(c.getId() == 1){
+        //Category c = this.categoryService.findById(category.getId());
+        if(category.getCategory().equals(edu.mum.fantastic.domain.enumeration.Category.DATING)){
             return "redirect:/sec/dating";
-        }else if(c.getId() == 2){
+        }else if(category.getCategory().equals(edu.mum.fantastic.domain.enumeration.Category.TRAVEL)){
             return "redirect:/sec/travel";
         }
         return "category";
@@ -81,6 +85,8 @@ public class CategoryController {
         modelAndView.addObject("category", category);
         return modelAndView;
     }
+
+
 
     @RequestMapping(value = "/admin/category/edit/{id}", method = RequestMethod.POST)
     public String editCategory(@ModelAttribute Category category, @PathVariable Long id, final RedirectAttributes redirectAttributes) {

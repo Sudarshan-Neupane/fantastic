@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="travel">
     <form:form modelAttribute="category" method="post">
-        <form:select items="${categories}" path="id" itemValue="id" itemLabel="categoryName"></form:select>
+        <form:select items="${categories}" path="category" ></form:select>
         <form:button type="submit">Submit</form:button>
     </form:form>
 </div>
